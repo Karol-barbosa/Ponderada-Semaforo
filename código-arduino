@@ -1,0 +1,40 @@
+// Definição dos pinos dos LEDs
+const int ledVermelho = 13;
+const int ledAmarelo = 12;
+const int ledVerde = 11;
+
+// A função setup() é executada apenas uma vez
+// quando o Arduino é ligado ou reiniciado.
+
+void setup() {
+  // Define os pinos dos LEDs como saídas (OUTPUT),
+  // permitindo enviar sinais elétricos para acender os LEDs.
+  pinMode(ledVermelho, OUTPUT);
+  pinMode(ledAmarelo, OUTPUT);
+  pinMode(ledVerde, OUTPUT);
+}
+
+void loop() {
+  // Fase Vermelha
+  // O LED vermelho acende, os outros ficam apagados.
+  digitalWrite(ledVermelho, HIGH);
+  digitalWrite(ledAmarelo, LOW);
+  digitalWrite(ledVerde, LOW);
+  delay(6000); // 6 segundos
+
+   // O LED verde acende
+  digitalWrite(ledVermelho, LOW);
+  digitalWrite(ledAmarelo, LOW);
+  digitalWrite(ledVerde, HIGH);
+  delay(4000); // 4 segundos
+
+   // O LED amarelo acende
+  digitalWrite(ledVermelho, LOW);
+  digitalWrite(ledAmarelo, HIGH);
+  digitalWrite(ledVerde, LOW);
+  delay(2000); // 2 segundos
+
+  // LOW desliga o led
+  // HIGH liga o led
+  // Depois o ciclo entra em loop
+}

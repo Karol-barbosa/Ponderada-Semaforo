@@ -66,7 +66,8 @@ O funcionamento do semáforo foi testado e registrado em vídeo, mostrando a seq
 - 🟢 **Verde:** 4 segundos  
 - 🟡 **Amarelo:** 2 segundos  
  
-📎 [Link para o vídeo de demonstração](COLE_AQUI_O_LINK_DO_VÍDEO)
+📎 [Link para o vídeo de demonstração](https://github.com/Karol-barbosa/Ponderada-Semaforo/blob/main/video.mp4)
+
 
 ---
 

@@ -47,8 +47,9 @@ As imagens estão disponíveis na pasta [`assets/`](./assets).
 
    ![Passo 3](./assets/passo-tres.png)
 
+## Todos os Componentes juntos
 
-   ![Passo 4](./assets/passo-quatro.png)
+   ![Passo 4](./assets/passo-quatro.jpeg)
 
  
    ![Passo 5](./assets/passo-cinco.png)

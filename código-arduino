@@ -1,40 +1,64 @@
-// Definição dos pinos dos LEDs
-const int ledVermelho = 13;
-const int ledAmarelo = 12;
-const int ledVerde = 11;
+// Classe Semaforo com Programação Orientada a Objetos POO e uso de ponteiro
+class Semaforo {
+  private:
+    int pinoVermelho;
+    int pinoAmarelo;
+    int pinoVerde;
 
-// A função setup() é executada apenas uma vez
-// quando o Arduino é ligado ou reiniciado.
+  public:
+    // Construtor: define os pinos
+    Semaforo(int vermelho, int amarelo, int verde) {
+      pinoVermelho = vermelho;
+      pinoAmarelo = amarelo;
+      pinoVerde = verde;
+    }
+
+    // Inicializa os pinos como saída
+    void iniciar() {
+      pinMode(pinoVermelho, OUTPUT);
+      pinMode(pinoAmarelo, OUTPUT);
+      pinMode(pinoVerde, OUTPUT);
+    }
+
+    // Liga e desliga os LEDs conforme a fase
+    void vermelho() {
+      digitalWrite(pinoVermelho, HIGH);
+      digitalWrite(pinoAmarelo, LOW);
+      digitalWrite(pinoVerde, LOW);
+    }
+
+    void amarelo() {
+      digitalWrite(pinoVermelho, LOW);
+      digitalWrite(pinoAmarelo, HIGH);
+      digitalWrite(pinoVerde, LOW);
+    }
+
+    void verde() {
+      digitalWrite(pinoVermelho, LOW);
+      digitalWrite(pinoAmarelo, LOW);
+      digitalWrite(pinoVerde, HIGH);
+    }
+};
+
+// Criando o objeto usando ponteiro
+Semaforo* semaforo;
 
 void setup() {
-  // Define os pinos dos LEDs como saídas (OUTPUT),
-  // permitindo enviar sinais elétricos para acender os LEDs.
-  pinMode(ledVermelho, OUTPUT);
-  pinMode(ledAmarelo, OUTPUT);
-  pinMode(ledVerde, OUTPUT);
+  // Instancia o objeto dinamicamente com "new"
+  semaforo = new Semaforo(13, 12, 11);
+  semaforo->iniciar();
 }
 
 void loop() {
-  // Fase Vermelha
-  // O LED vermelho acende, os outros ficam apagados.
-  digitalWrite(ledVermelho, HIGH);
-  digitalWrite(ledAmarelo, LOW);
-  digitalWrite(ledVerde, LOW);
-  delay(6000); // 6 segundos
+  // Liga a luz vermelha por 6 segundos (6000 milissegundos)
+  semaforo->vermelho();
+  delay(6000);
 
-   // O LED verde acende
-  digitalWrite(ledVermelho, LOW);
-  digitalWrite(ledAmarelo, LOW);
-  digitalWrite(ledVerde, HIGH);
-  delay(4000); // 4 segundos
+  // Liga a luz verde por 4 segundos (4000 milissegundos)
+  semaforo->verde();
+  delay(4000);
 
-   // O LED amarelo acende
-  digitalWrite(ledVermelho, LOW);
-  digitalWrite(ledAmarelo, HIGH);
-  digitalWrite(ledVerde, LOW);
-  delay(2000); // 2 segundos
-
-  // LOW desliga o led
-  // HIGH liga o led
-  // Depois o ciclo entra em loop
+  // Liga a luz amarela por 2 segundos (2000 milissegundos)
+  semaforo->amarelo();
+  delay(2000);
 }
